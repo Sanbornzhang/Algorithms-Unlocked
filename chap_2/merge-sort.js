@@ -1,17 +1,44 @@
 "use strict";
-const mergeSort = function(aSortedArray1,aSortedArray2)
+const mergeSort = function(aSortedLeft,aSortedRight)
 {
-  let vNewArray = []
-  const vKey1 = aSortedArray1[aSortedArray1.length-1] * 10
-  const vKey2 = aSortedArray2[aSortedArray2.length-1] * 10
-  aSortedArray1.push(vKey1)
-  aSortedArray2.push(vKey2)
-  for(let i = 0; i < aSortedArray1.length; i++)
+  if(aSortedLeft.length !== aSortedRight.length)
   {
-    if(aSortedArray1[i] === vKey1)
-    {
-      vNewArray
-    }
+    vError         = new Error();
+    vError.message = 'Array length must be same';
+    throw(vError)
   }
+  // add key
+  const vKey1 = aSortedLeft[aSortedLeft.length-1] * 10
+  const vKey2 = aSortedRight[aSortedRight.length-1] * 10
+  aSortedLeft.push(vKey1)
+  aSortedRight.push(vKey2)
+
+  let vNewArray   = []
+  let vLeftIndex  = 0
+  let vRightIndex = 0
+  for(let i = 0; i < aSortedLeft.length + aSortedRight.length - 2 ; i++)
+  {
+    if(aSortedLeft[vLeftIndex] === vKey1)
+    {
+      vNewArray.push(aSortedRight[vRightIndex])
+      ++vRightIndex;
+      continue;
+    }
+    if(aSortedRight[vRightIndex] === vKey2)
+    {
+      vNewArray.push(aSortedLeft[vRightIndex])
+      ++vLeftIndex;
+      continue;
+    }
+    if(aSortedLeft[vLeftIndex] > aSortedRight[vRightIndex])
+    {
+      vNewArray.push(aSortedRight[vRightIndex])
+      ++vRightIndex;
+      continue;
+    }
+    vNewArray.push(aSortedLeft[vLeftIndex])
+    ++vLeftIndex;
+  }
+  return vNewArray;
 }
 module.exports = mergeSort;
