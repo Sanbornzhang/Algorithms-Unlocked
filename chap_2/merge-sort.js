@@ -1,30 +1,18 @@
 "use strict";
 const mergeSort = function(aSortedLeft,aSortedRight)
 {
-  if(aSortedLeft.length !== aSortedRight.length)
-  {
-    vError         = new Error();
-    vError.message = 'Array length must be same';
-    throw(vError)
-  }
-  // add key
-  const vKey1 = aSortedLeft[aSortedLeft.length-1] * 10
-  const vKey2 = aSortedRight[aSortedRight.length-1] * 10
-  aSortedLeft.push(vKey1)
-  aSortedRight.push(vKey2)
-
   let vNewArray   = []
   let vLeftIndex  = 0
   let vRightIndex = 0
-  for(let i = 0; i < aSortedLeft.length + aSortedRight.length - 2 ; i++)
+  for(let i = 0; i < aSortedLeft.length + aSortedRight.length ; i++)
   {
-    if(aSortedLeft[vLeftIndex] === vKey1)
+    if(vLeftIndex === aSortedLeft.length)
     {
       vNewArray.push(aSortedRight[vRightIndex])
       ++vRightIndex;
       continue;
     }
-    if(aSortedRight[vRightIndex] === vKey2)
+    if(vRightIndex === aSortedRight.length)
     {
       vNewArray.push(aSortedLeft[vRightIndex])
       ++vLeftIndex;
