@@ -14,7 +14,7 @@ const mergeSort = function(aSortedLeft,aSortedRight)
     }
     if(vRightIndex === aSortedRight.length)
     {
-      vNewArray.push(aSortedLeft[vRightIndex])
+      vNewArray.push(aSortedLeft[vLeftIndex])
       ++vLeftIndex;
       continue;
     }
