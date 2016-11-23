@@ -5,7 +5,7 @@ var diffResult = function(aSortedLeft,aSortedRight)
   {
     if(aSortedLeft[i] !== aSortedRight[i])
     {
-      vError         = new Error();
+      const vError   = new Error();
       vError.message = 'Array length must be same';
       throw(vError)
     }
