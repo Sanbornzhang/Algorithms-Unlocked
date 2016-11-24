@@ -14,6 +14,7 @@ divideAndConquerP(vArray).then((result)=>{console.timeEnd("divideAndConquer")})
 console.time("insertingSort")
 const insertingSortArray = insertingSort(vArray)
 console.timeEnd("insertingSort")
+
 console.time("bubbleSort")
 const bubbleSortArray = bubbleSort(vArray)
 console.timeEnd("bubbleSort")

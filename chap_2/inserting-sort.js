@@ -5,12 +5,12 @@ const insertingSort = function(aArray)
   for(let j = 1; j < resultArray.length; j++)
   {
     let vChangeValue = resultArray[j]
-    for( let k = j ; k >= 0 && resultArray[k] < resultArray[k-1] ; k--)
+    let vChangeIndex = j
+    for( vChangeIndex = j ; vChangeIndex >= 0 && vChangeValue < resultArray[vChangeIndex-1] ; vChangeIndex--)
     {
-      let i = k - 1
-      resultArray[k] = resultArray[i]
-      resultArray[i] = vChangeValue
+      resultArray[vChangeIndex] = resultArray[vChangeIndex-1]
     }
+    resultArray[vChangeIndex] = vChangeValue
   }
   return resultArray;
 }
